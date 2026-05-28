@@ -30,35 +30,35 @@ export class ListComponent implements OnInit {
   // Données (sera remplacé par staffService.getAllStaffs())
   staffs: Staff[] = [
     {
-      id: 1, nom: 'Rufin', prenom: 'Dr. Jean', genre: 'Masculin', email: 'jean@mbemnova.com', telephone: '697000001', designation: 'Gynecologist', qualification: '8 années expérience', rating: 5,
+      id: 1, nom: 'Rufin', prenom: 'panama', genre: 'Masculin', email: 'jean@mbemnova.com', telephone: '697000001', designation: 'Gynecologist', qualification: '8 années expérience', rating: 5,
       experience:5 
     },
     {
-      id: 2, nom: 'Padal', prenom: 'Marie', genre: 'Féminin', email: 'marie@mbemnova.com', telephone: '697000002', designation: 'Gynecologist', qualification: '8 années expérience', rating: 5,
+      id: 2, nom: 'kengne', prenom: 'wilson', genre: 'Féminin', email: 'marie@mbemnova.com', telephone: '697000002', designation: 'Gynecologist', qualification: '8 années expérience', rating: 5,
       experience: 6
     },
     {
-      id: 3, nom: 'Bello', prenom: 'Paul', genre: 'Masculin', email: 'paul@mbemnova.com', telephone: '697000003', designation: 'Gynecologist', qualification: '8 années expérience', rating: 4,
+      id: 3, nom: 'abenet', prenom: 'Paul', genre: 'feminim', email: 'paul@mbemnova.com', telephone: '697000003', designation: 'Gynecologist', qualification: '8 années expérience', rating: 4,
       experience: 3
     },
     {
-      id: 4, nom: 'Nguema', prenom: 'Sophie', genre: 'Féminin', email: 'sophie@mbemnova.com', telephone: '697000004', designation: 'Gynecologist', qualification: '8 années expérience', rating: 5,
+      id: 4, nom: 'Nguema', prenom: 'brocode', genre: 'Féminin', email: 'sophie@mbemnova.com', telephone: '697000004', designation: 'Gynecologist', qualification: '8 années expérience', rating: 5,
       experience: 3
     },
     {
-      id: 5, nom: 'Mvondo', prenom: 'Dr. Alain', genre: 'Masculin', email: 'alain@mbemnova.com', telephone: '697000005', designation: 'Cardiologue', qualification: '5 années expérience', rating: 3,
+      id: 5, nom: 'Mvondo', prenom: 'brorema', genre: 'Masculin', email: 'alain@mbemnova.com', telephone: '697000005', designation: 'Cardiologue', qualification: '5 années expérience', rating: 3,
       experience: 3
     },
     {
-      id: 6, nom: 'Manga', prenom: 'Claire', genre: 'Féminin', email: 'claire@mbemnova.com', telephone: '697000006', designation: 'Gynecologist', qualification: '8 années expérience', rating: 5,
+      id: 6, nom: 'Manga', prenom: 'clodelnoubissi', genre: 'Féminin', email: 'claire@mbemnova.com', telephone: '697000006', designation: 'Gynecologist', qualification: '8 années expérience', rating: 5,
       experience: 4
     },
     {
-      id: 7, nom: 'Zang', prenom: 'Eric', genre: 'Masculin', email: 'eric@mbemnova.com', telephone: '697000007', designation: 'Pédiatre', qualification: '3 années expérience', rating: 4,
+      id: 7, nom: 'franck', prenom: 'Eric', genre: 'Masculin', email: 'eric@mbemnova.com', telephone: '697000007', designation: 'Pédiatre', qualification: '3 années expérience', rating: 4,
       experience: 4
     },
     {
-      id: 8, nom: 'Ewane', prenom: 'Dr. Anna', genre: 'Féminin', email: 'anna@mbemnova.com', telephone: '697000008', designation: 'Gynecologist', qualification: '8 années expérience', rating: 5,
+      id: 8, nom: 'Tchoukou', prenom: 'wilson', genre: 'Féminin', email: 'anna@mbemnova.com', telephone: '697000008', designation: 'Gynecologist', qualification: '8 années expérience', rating: 5,
       experience: 8
     },
   ];
@@ -66,9 +66,10 @@ export class ListComponent implements OnInit {
   filteredStaffs: Staff[] = [];
   viewMode: 'card' | 'list' = 'card';
   searchTerm = '';
+sidebarOpen: any;
 
   ngOnInit(): void {
-    // Initialiser la liste filtrée avec toutes les données
+
     this.filteredStaffs = [...this.staffs];
 
  
@@ -90,12 +91,11 @@ export class ListComponent implements OnInit {
   deleteStaff(id: number): void {
     if (!confirm('Confirmer la suppression de ce staff ?')) return;
 
-    // Supprimer localement (remplace par staffService.deleteStaff(id) plus tard)
     this.staffs         = this.staffs.filter(s => s.id !== id);
     this.filteredStaffs = this.filteredStaffs.filter(s => s.id !== id);
   }
 
-  // Générer le tableau des étoiles [1,1,1,0,0] pour 3/5
+
   getStars(rating: number = 5): number[] {
     return Array.from({ length: 5 }, (_, i) => i < rating ? 1 : 0);
   }

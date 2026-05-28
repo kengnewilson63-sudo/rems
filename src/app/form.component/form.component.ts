@@ -13,6 +13,7 @@ import { Router, RouterModule } from '@angular/router';
 export class FormComponent implements OnInit {
   staffForm!: FormGroup;
   isLoading = false;
+sidebarOpen: any;
 
   constructor(private fb: FormBuilder, private router: Router) {}
 

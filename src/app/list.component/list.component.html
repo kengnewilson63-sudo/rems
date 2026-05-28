@@ -1,13 +1,12 @@
-
+<!-- list.component.html — RESPONSIVE COMPLET (mobile, tablette, desktop) -->
 
 <div class="flex h-screen bg-gray-50 overflow-hidden">
 
-  <!-- ========== SIDEBAR ========== -->
-  <aside class="w-14 bg-[#1e1b4b] flex flex-col items-center py-3 gap-1 shrink-0">
+  <!-- ========== SIDEBAR — cachée sur mobile, visible desktop ========== -->
+  <aside class="hidden md:flex w-14 bg-[#1e1b4b] flex-col items-center py-3 gap-1 shrink-0">
     <div class="w-9 h-9 rounded-xl bg-blue-600 flex items-center justify-center mb-3">
       <svg viewBox="0 0 24 24" class="w-5 h-5 fill-white"><circle cx="12" cy="12" r="10"/><path fill="#1e1b4b" d="M8 12h8M12 8v8"/></svg>
     </div>
-    <!-- toggle arrow -->
     <button class="w-9 h-9 rounded-lg flex items-center justify-center text-gray-400 hover:bg-white/10">
       <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="9,18 15,12 9,6"/></svg>
     </button>
@@ -15,7 +14,6 @@
       <button class="w-9 h-9 rounded-lg flex items-center justify-center text-gray-400 hover:text-white hover:bg-white/10">
         <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
       </button>
-      <!-- ACTIVE staff list -->
       <button class="w-9 h-9 rounded-lg flex items-center justify-center bg-blue-600 text-white">
         <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
       </button>
@@ -53,28 +51,71 @@
   </aside>
 
   <!-- ========== MAIN ========== -->
-  <div class="flex-1 flex flex-col overflow-hidden">
+  <div class="flex-1 flex flex-col overflow-hidden min-w-0">
 
     <!-- TOPBAR -->
-    <header class="h-12 bg-white border-b border-gray-200 flex items-center px-4 gap-3 shrink-0">
-      <div class="flex items-center gap-2 bg-gray-100 rounded-full px-3 py-1.5 w-44">
+    <header class="h-12 bg-white border-b border-gray-200 flex items-center px-3 md:px-4 gap-2 md:gap-3 shrink-0">
+
+      <!-- Burger menu — visible seulement mobile -->
+      <button (click)="sidebarOpen = !sidebarOpen"
+        class="md:hidden w-8 h-8 flex items-center justify-center text-gray-500 hover:bg-gray-100 rounded-lg">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+
+      <!-- Search — masquée sur très petit écran -->
+      <div class="hidden sm:flex items-center gap-2 bg-gray-100 rounded-full px-3 py-1.5 w-36 md:w-44">
         <svg class="w-3.5 h-3.5 text-gray-400 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
         <input type="text" placeholder="Search" class="bg-transparent text-xs text-gray-500 w-full outline-none placeholder-gray-400"/>
       </div>
+
       <div class="flex-1"></div>
-      <div class="flex items-center gap-2">
+
+      <div class="flex items-center gap-1.5 md:gap-2">
         <button class="w-7 h-7 flex items-center justify-center text-gray-400 hover:text-gray-600">
           <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
         </button>
         <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="user" class="w-7 h-7 rounded-full object-cover"/>
-        <button class="w-7 h-7 flex items-center justify-center text-gray-400 hover:text-gray-600">
+        <button class="hidden sm:flex w-7 h-7 items-center justify-center text-gray-400 hover:text-gray-600">
           <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
         </button>
       </div>
     </header>
 
+    <!-- SIDEBAR MOBILE OVERLAY -->
+    <div *ngIf="sidebarOpen"
+      class="md:hidden fixed inset-0 z-40 flex">
+      <!-- Backdrop -->
+      <div class="fixed inset-0 bg-black/40" (click)="sidebarOpen = false"></div>
+      <!-- Sidebar panel -->
+      <aside class="relative z-50 w-14 bg-[#1e1b4b] flex flex-col items-center py-3 gap-1 h-full">
+        <div class="w-9 h-9 rounded-xl bg-blue-600 flex items-center justify-center mb-3">
+          <svg viewBox="0 0 24 24" class="w-5 h-5 fill-white"><circle cx="12" cy="12" r="10"/><path fill="#1e1b4b" d="M8 12h8M12 8v8"/></svg>
+        </div>
+        <nav class="flex flex-col items-center gap-1">
+          <button class="w-9 h-9 rounded-lg flex items-center justify-center text-gray-400 hover:text-white hover:bg-white/10">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
+          </button>
+          <button class="w-9 h-9 rounded-lg flex items-center justify-center bg-blue-600 text-white">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+          </button>
+          <button class="w-9 h-9 rounded-lg flex items-center justify-center text-gray-400 hover:text-white hover:bg-white/10">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          </button>
+          <button class="w-9 h-9 rounded-lg flex items-center justify-center text-gray-400 hover:text-white hover:bg-white/10">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+          </button>
+        </nav>
+        <div class="flex-1"></div>
+        <div class="flex flex-col items-center gap-1 mb-2">
+          <button class="w-9 h-9 rounded-lg flex items-center justify-center text-gray-400 hover:text-white hover:bg-white/10">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16,17 21,12 16,7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+          </button>
+        </div>
+      </aside>
+    </div>
+
     <!-- CONTENT -->
-    <main class="flex-1 overflow-y-auto p-4 bg-gray-50">
+    <main class="flex-1 overflow-y-auto p-3 md:p-4 bg-gray-50">
 
       <!-- Breadcrumb -->
       <div class="flex items-center gap-1 text-xs text-gray-400 mb-3">
@@ -84,8 +125,9 @@
         <span class="text-gray-600 font-medium">Staff List</span>
       </div>
 
-      <!-- TOOLBAR -->
-      <div class="flex items-center justify-between mb-3">
+      <!-- TOOLBAR — empilé sur mobile, horizontal sur desktop -->
+      <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-3">
+
         <!-- Card / List toggle -->
         <div class="flex">
           <button (click)="viewMode='card'"
@@ -101,10 +143,15 @@
             List
           </button>
         </div>
+
         <!-- Import + Add Staff -->
         <div class="flex items-center gap-2">
-          <button class="px-3 py-1.5 text-xs border border-gray-300 rounded-lg text-gray-600 bg-white hover:bg-gray-50">Import</button>
-          <button routerLink="/form" class="flex items-center gap-1.5 px-3 py-1.5 text-xs bg-blue-600 text-white rounded-lg hover:bg-blue-700 font-semibold">
+          <button class="px-3 py-1.5 text-xs border border-gray-300 rounded-lg text-gray-600 bg-white hover:bg-gray-50">
+            Import
+          </button>
+          <button routerLink="/form"
+            class="flex items-center gap-1.5 px-3 py-1.5 text-xs bg-blue-600 text-white rounded-lg hover:bg-blue-700 font-semibold">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
             Add Staff
           </button>
         </div>
@@ -112,29 +159,30 @@
 
       <!-- Search bar -->
       <div class="flex justify-end mb-3">
-        <div class="flex items-center gap-2 bg-white border border-gray-200 rounded-lg px-2.5 py-1.5 w-48">
+        <div class="flex items-center gap-2 bg-white border border-gray-200 rounded-lg px-2.5 py-1.5 w-full sm:w-48">
           <svg class="w-3.5 h-3.5 text-gray-400 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
-          <input type="text" [(ngModel)]="searchTerm" (input)="onSearch()" placeholder="Search" class="text-xs text-gray-500 w-full outline-none placeholder-gray-400"/>
+          <input type="text" [(ngModel)]="searchTerm" (input)="onSearch()"
+            placeholder="Search" class="text-xs text-gray-500 w-full outline-none placeholder-gray-400"/>
         </div>
       </div>
 
       <!-- ======= VUE CARD ======= -->
-      <div *ngIf="viewMode === 'card'" class="grid grid-cols-4 gap-3">
+      <!-- 1 col mobile / 2 tablette / 3 md / 4 desktop -->
+      <div *ngIf="viewMode === 'card'"
+        class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
+
         <div *ngFor="let s of filteredStaffs"
           class="bg-white rounded-xl border border-gray-200 shadow-sm p-4 flex flex-col items-center text-center gap-1.5 hover:shadow-md transition-shadow">
 
-          <!-- Photo réelle médecin -->
           <div class="w-16 h-16 rounded-full overflow-hidden border-2 border-gray-100 shadow-sm">
-          
-            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="user" class="w-full h-full object-cover object-top"/>
+            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="user"
+              class="w-full h-full object-cover object-top"/>
           </div>
 
-          <!-- Nom en bleu comme le PDF -->
           <p class="text-sm font-semibold text-blue-600 mt-1">{{ s.prenom }} {{ s.nom }}</p>
           <p class="text-xs text-gray-500">{{ s.designation }}</p>
           <p class="text-xs text-gray-400">{{ s.experience }}</p>
 
-          <!-- Étoiles jaunes -->
           <div class="flex items-center gap-0.5">
             <ng-container *ngFor="let star of getStars(s.rating)">
               <svg [class]="star ? 'w-3.5 h-3.5 text-amber-400' : 'w-3.5 h-3.5 text-gray-200'"
@@ -144,64 +192,89 @@
             </ng-container>
           </div>
 
-          <!-- Bouton More bleu -->
           <button class="mt-1 px-5 py-1 text-xs bg-blue-600 text-white rounded-lg hover:bg-blue-700 font-medium">
             More
           </button>
         </div>
 
-        <!-- Empty state -->
-        <div *ngIf="filteredStaffs.length === 0" class="col-span-4 text-center py-10 text-gray-400 text-sm">
+        <div *ngIf="filteredStaffs.length === 0"
+          class="col-span-full text-center py-10 text-gray-400 text-sm">
           Aucun staff trouvé
         </div>
       </div>
 
       <!-- ======= VUE LIST ======= -->
-      <div *ngIf="viewMode === 'list'" class="bg-white rounded-xl border border-gray-200 shadow-sm overflow-hidden">
-        <table class="w-full">
-          <thead class="bg-gray-50 border-b border-gray-200">
-            <tr>
-              <th class="text-left px-4 py-2.5 text-xs font-semibold text-gray-500 uppercase">Staff</th>
-              <th class="text-left px-4 py-2.5 text-xs font-semibold text-gray-500 uppercase">Email</th>
-              <th class="text-left px-4 py-2.5 text-xs font-semibold text-gray-500 uppercase">Téléphone</th>
-              <th class="text-left px-4 py-2.5 text-xs font-semibold text-gray-500 uppercase">Désignation</th>
-              <th class="text-left px-4 py-2.5 text-xs font-semibold text-gray-500 uppercase">Rating</th>
-              <th class="px-4 py-2.5"></th>
-            </tr>
-          </thead>
-          <tbody class="divide-y divide-gray-100">
-            <tr *ngFor="let s of filteredStaffs" class="hover:bg-gray-50">
-              <td class="px-4 py-3">
-                <div class="flex items-center gap-3">
-                  <img [src]="s.photo" class="w-8 h-8 rounded-full object-cover object-top"/>
-                  <div>
-                    <p class="text-xs font-semibold text-gray-800">{{ s.prenom }} {{ s.nom }}</p>
-                    <p class="text-xs text-gray-400">{{ s.genre }}</p>
+      <!-- Scrollable horizontalement sur petit écran -->
+      <div *ngIf="viewMode === 'list'"
+        class="bg-white rounded-xl border border-gray-200 shadow-sm overflow-hidden">
+        <div class="overflow-x-auto">
+          <table class="w-full min-w-[600px]">
+            <thead class="bg-gray-50 border-b border-gray-200">
+              <tr>
+                <th class="text-left px-4 py-2.5 text-xs font-semibold text-gray-500 uppercase">Staff</th>
+                <th class="text-left px-4 py-2.5 text-xs font-semibold text-gray-500 uppercase hidden sm:table-cell">Email</th>
+                <th class="text-left px-4 py-2.5 text-xs font-semibold text-gray-500 uppercase hidden md:table-cell">Téléphone</th>
+                <th class="text-left px-4 py-2.5 text-xs font-semibold text-gray-500 uppercase">Désignation</th>
+                <th class="text-left px-4 py-2.5 text-xs font-semibold text-gray-500 uppercase hidden sm:table-cell">Rating</th>
+                <th class="px-4 py-2.5"></th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-gray-100">
+              <tr *ngFor="let s of filteredStaffs" class="hover:bg-gray-50">
+                <td class="px-4 py-3">
+                  <div class="flex items-center gap-3">
+                    <img [src]="s.photo" class="w-8 h-8 rounded-full object-cover object-top shrink-0"/>
+                    <div class="min-w-0">
+                      <p class="text-xs font-semibold text-gray-800 truncate">{{ s.prenom }} {{ s.nom }}</p>
+                      <p class="text-xs text-gray-400">{{ s.genre }}</p>
+                    </div>
                   </div>
-                </div>
-              </td>
-              <td class="px-4 py-3 text-xs text-gray-600">{{ s.email }}</td>
-              <td class="px-4 py-3 text-xs text-gray-600">{{ s.telephone }}</td>
-              <td class="px-4 py-3 text-xs text-gray-600">{{ s.designation }}</td>
-              <td class="px-4 py-3">
-                <div class="flex gap-0.5">
-                  <ng-container *ngFor="let star of getStars(s.rating)">
-                    <svg [class]="star ? 'w-3 h-3 text-amber-400' : 'w-3 h-3 text-gray-200'" fill="currentColor" viewBox="0 0 20 20">
-                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-                    </svg>
-                  </ng-container>
-                </div>
-              </td>
-              <td class="px-4 py-3">
-                <button (click)="deleteStaff(s.id)" class="text-red-400 hover:text-red-600 p-1 rounded hover:bg-red-50">
-                  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="3,6 5,6 21,6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"/></svg>
-                </button>
-              </td>
-            </tr>
-          </tbody>
-        </table>
+                </td>
+                <td class="px-4 py-3 text-xs text-gray-600 hidden sm:table-cell max-w-[140px] truncate">{{ s.email }}</td>
+                <td class="px-4 py-3 text-xs text-gray-600 hidden md:table-cell">{{ s.telephone }}</td>
+                <td class="px-4 py-3 text-xs text-gray-600">{{ s.designation }}</td>
+                <td class="px-4 py-3 hidden sm:table-cell">
+                  <div class="flex gap-0.5">
+                    <ng-container *ngFor="let star of getStars(s.rating)">
+                      <svg [class]="star ? 'w-3 h-3 text-amber-400' : 'w-3 h-3 text-gray-200'"
+                        fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                      </svg>
+                    </ng-container>
+                  </div>
+                </td>
+                <td class="px-4 py-3">
+                  <button (click)="deleteStaff(s.id)"
+                    class="text-red-400 hover:text-red-600 p-1 rounded hover:bg-red-50">
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="3,6 5,6 21,6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"/></svg>
+                  </button>
+                </td>
+              </tr>
+              <tr *ngIf="filteredStaffs.length === 0">
+                <td colspan="6" class="px-4 py-10 text-center text-gray-400 text-sm">Aucun staff trouvé</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
 
     </main>
+
+    <!-- ========== BOTTOM NAV — mobile seulement ========== -->
+    <nav class="md:hidden bg-white border-t border-gray-200 flex items-center justify-around py-2 shrink-0">
+      <button class="flex flex-col items-center gap-0.5 text-blue-600">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        <span class="text-[10px] font-medium">Staff</span>
+      </button>
+      <button routerLink="/form" class="flex flex-col items-center gap-0.5 text-gray-400">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/><line x1="12" y1="13" x2="12" y2="19"/><line x1="9" y1="16" x2="15" y2="16"/></svg>
+        <span class="text-[10px]">Ajouter</span>
+      </button>
+      <button class="flex flex-col items-center gap-0.5 text-gray-400">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
+        <span class="text-[10px]">Paramètres</span>
+      </button>
+    </nav>
+
   </div>
 </div>
