@@ -1,0 +1,207 @@
+
+
+<div class="flex h-screen bg-gray-50 overflow-hidden">
+
+  <!-- ========== SIDEBAR ========== -->
+  <aside class="w-14 bg-[#1e1b4b] flex flex-col items-center py-3 gap-1 shrink-0">
+    <div class="w-9 h-9 rounded-xl bg-blue-600 flex items-center justify-center mb-3">
+      <svg viewBox="0 0 24 24" class="w-5 h-5 fill-white"><circle cx="12" cy="12" r="10"/><path fill="#1e1b4b" d="M8 12h8M12 8v8"/></svg>
+    </div>
+    <!-- toggle arrow -->
+    <button class="w-9 h-9 rounded-lg flex items-center justify-center text-gray-400 hover:bg-white/10">
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="9,18 15,12 9,6"/></svg>
+    </button>
+    <nav class="flex flex-col items-center gap-1">
+      <button class="w-9 h-9 rounded-lg flex items-center justify-center text-gray-400 hover:text-white hover:bg-white/10">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
+      </button>
+      <!-- ACTIVE staff list -->
+      <button class="w-9 h-9 rounded-lg flex items-center justify-center bg-blue-600 text-white">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+      </button>
+      <button class="w-9 h-9 rounded-lg flex items-center justify-center text-gray-400 hover:text-white hover:bg-white/10">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+      </button>
+      <button class="w-9 h-9 rounded-lg flex items-center justify-center text-gray-400 hover:text-white hover:bg-white/10">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/></svg>
+      </button>
+      <button class="w-9 h-9 rounded-lg flex items-center justify-center text-gray-400 hover:text-white hover:bg-white/10">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+      </button>
+      <button class="w-9 h-9 rounded-lg flex items-center justify-center text-gray-400 hover:text-white hover:bg-white/10">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+      </button>
+      <button class="w-9 h-9 rounded-lg flex items-center justify-center text-gray-400 hover:text-white hover:bg-white/10">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+      </button>
+      <button class="w-9 h-9 rounded-lg flex items-center justify-center text-gray-400 hover:text-white hover:bg-white/10">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="23" y1="11" x2="23" y2="17"/><line x1="20" y1="14" x2="26" y2="14"/></svg>
+      </button>
+    </nav>
+    <div class="flex-1"></div>
+    <div class="flex flex-col items-center gap-1 mb-2">
+      <button class="w-9 h-9 rounded-lg flex items-center justify-center text-gray-400 hover:text-white hover:bg-white/10">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
+      </button>
+      <button class="w-9 h-9 rounded-lg flex items-center justify-center text-gray-400 hover:text-white hover:bg-white/10">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+      </button>
+      <button class="w-9 h-9 rounded-lg flex items-center justify-center text-gray-400 hover:text-white hover:bg-white/10">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16,17 21,12 16,7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+      </button>
+    </div>
+  </aside>
+
+  <!-- ========== MAIN ========== -->
+  <div class="flex-1 flex flex-col overflow-hidden">
+
+    <!-- TOPBAR -->
+    <header class="h-12 bg-white border-b border-gray-200 flex items-center px-4 gap-3 shrink-0">
+      <div class="flex items-center gap-2 bg-gray-100 rounded-full px-3 py-1.5 w-44">
+        <svg class="w-3.5 h-3.5 text-gray-400 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        <input type="text" placeholder="Search" class="bg-transparent text-xs text-gray-500 w-full outline-none placeholder-gray-400"/>
+      </div>
+      <div class="flex-1"></div>
+      <div class="flex items-center gap-2">
+        <button class="w-7 h-7 flex items-center justify-center text-gray-400 hover:text-gray-600">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+        </button>
+        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="user" class="w-7 h-7 rounded-full object-cover"/>
+        <button class="w-7 h-7 flex items-center justify-center text-gray-400 hover:text-gray-600">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
+        </button>
+      </div>
+    </header>
+
+    <!-- CONTENT -->
+    <main class="flex-1 overflow-y-auto p-4 bg-gray-50">
+
+      <!-- Breadcrumb -->
+      <div class="flex items-center gap-1 text-xs text-gray-400 mb-3">
+        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg>
+        <span>Home</span>
+        <span class="text-gray-300">›</span>
+        <span class="text-gray-600 font-medium">Staff List</span>
+      </div>
+
+      <!-- TOOLBAR -->
+      <div class="flex items-center justify-between mb-3">
+        <!-- Card / List toggle -->
+        <div class="flex">
+          <button (click)="viewMode='card'"
+            [class]="viewMode==='card'
+              ? 'px-4 py-1.5 text-xs font-semibold bg-blue-600 text-white rounded-l-lg border border-blue-600'
+              : 'px-4 py-1.5 text-xs font-medium text-gray-600 bg-white border border-gray-200 rounded-l-lg hover:bg-gray-50'">
+            Card
+          </button>
+          <button (click)="viewMode='list'"
+            [class]="viewMode==='list'
+              ? 'px-4 py-1.5 text-xs font-semibold bg-blue-600 text-white rounded-r-lg border border-blue-600'
+              : 'px-4 py-1.5 text-xs font-medium text-gray-600 bg-white border border-gray-200 rounded-r-lg hover:bg-gray-50'">
+            List
+          </button>
+        </div>
+        <!-- Import + Add Staff -->
+        <div class="flex items-center gap-2">
+          <button class="px-3 py-1.5 text-xs border border-gray-300 rounded-lg text-gray-600 bg-white hover:bg-gray-50">Import</button>
+          <button routerLink="/form" class="flex items-center gap-1.5 px-3 py-1.5 text-xs bg-blue-600 text-white rounded-lg hover:bg-blue-700 font-semibold">
+            Add Staff
+          </button>
+        </div>
+      </div>
+
+      <!-- Search bar -->
+      <div class="flex justify-end mb-3">
+        <div class="flex items-center gap-2 bg-white border border-gray-200 rounded-lg px-2.5 py-1.5 w-48">
+          <svg class="w-3.5 h-3.5 text-gray-400 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+          <input type="text" [(ngModel)]="searchTerm" (input)="onSearch()" placeholder="Search" class="text-xs text-gray-500 w-full outline-none placeholder-gray-400"/>
+        </div>
+      </div>
+
+      <!-- ======= VUE CARD ======= -->
+      <div *ngIf="viewMode === 'card'" class="grid grid-cols-4 gap-3">
+        <div *ngFor="let s of filteredStaffs"
+          class="bg-white rounded-xl border border-gray-200 shadow-sm p-4 flex flex-col items-center text-center gap-1.5 hover:shadow-md transition-shadow">
+
+          <!-- Photo réelle médecin -->
+          <div class="w-16 h-16 rounded-full overflow-hidden border-2 border-gray-100 shadow-sm">
+          
+            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="user" class="w-full h-full object-cover object-top"/>
+          </div>
+
+          <!-- Nom en bleu comme le PDF -->
+          <p class="text-sm font-semibold text-blue-600 mt-1">{{ s.prenom }} {{ s.nom }}</p>
+          <p class="text-xs text-gray-500">{{ s.designation }}</p>
+          <p class="text-xs text-gray-400">{{ s.experience }}</p>
+
+          <!-- Étoiles jaunes -->
+          <div class="flex items-center gap-0.5">
+            <ng-container *ngFor="let star of getStars(s.rating)">
+              <svg [class]="star ? 'w-3.5 h-3.5 text-amber-400' : 'w-3.5 h-3.5 text-gray-200'"
+                fill="currentColor" viewBox="0 0 20 20">
+                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+              </svg>
+            </ng-container>
+          </div>
+
+          <!-- Bouton More bleu -->
+          <button class="mt-1 px-5 py-1 text-xs bg-blue-600 text-white rounded-lg hover:bg-blue-700 font-medium">
+            More
+          </button>
+        </div>
+
+        <!-- Empty state -->
+        <div *ngIf="filteredStaffs.length === 0" class="col-span-4 text-center py-10 text-gray-400 text-sm">
+          Aucun staff trouvé
+        </div>
+      </div>
+
+      <!-- ======= VUE LIST ======= -->
+      <div *ngIf="viewMode === 'list'" class="bg-white rounded-xl border border-gray-200 shadow-sm overflow-hidden">
+        <table class="w-full">
+          <thead class="bg-gray-50 border-b border-gray-200">
+            <tr>
+              <th class="text-left px-4 py-2.5 text-xs font-semibold text-gray-500 uppercase">Staff</th>
+              <th class="text-left px-4 py-2.5 text-xs font-semibold text-gray-500 uppercase">Email</th>
+              <th class="text-left px-4 py-2.5 text-xs font-semibold text-gray-500 uppercase">Téléphone</th>
+              <th class="text-left px-4 py-2.5 text-xs font-semibold text-gray-500 uppercase">Désignation</th>
+              <th class="text-left px-4 py-2.5 text-xs font-semibold text-gray-500 uppercase">Rating</th>
+              <th class="px-4 py-2.5"></th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-gray-100">
+            <tr *ngFor="let s of filteredStaffs" class="hover:bg-gray-50">
+              <td class="px-4 py-3">
+                <div class="flex items-center gap-3">
+                  <img [src]="s.photo" class="w-8 h-8 rounded-full object-cover object-top"/>
+                  <div>
+                    <p class="text-xs font-semibold text-gray-800">{{ s.prenom }} {{ s.nom }}</p>
+                    <p class="text-xs text-gray-400">{{ s.genre }}</p>
+                  </div>
+                </div>
+              </td>
+              <td class="px-4 py-3 text-xs text-gray-600">{{ s.email }}</td>
+              <td class="px-4 py-3 text-xs text-gray-600">{{ s.telephone }}</td>
+              <td class="px-4 py-3 text-xs text-gray-600">{{ s.designation }}</td>
+              <td class="px-4 py-3">
+                <div class="flex gap-0.5">
+                  <ng-container *ngFor="let star of getStars(s.rating)">
+                    <svg [class]="star ? 'w-3 h-3 text-amber-400' : 'w-3 h-3 text-gray-200'" fill="currentColor" viewBox="0 0 20 20">
+                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                    </svg>
+                  </ng-container>
+                </div>
+              </td>
+              <td class="px-4 py-3">
+                <button (click)="deleteStaff(s.id)" class="text-red-400 hover:text-red-600 p-1 rounded hover:bg-red-50">
+                  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="3,6 5,6 21,6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"/></svg>
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </main>
+  </div>
+</div>
